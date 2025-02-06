@@ -1,0 +1,202 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "User Service",
+        "description": "User API Documentation",
+        "contact": {
+            "email": "bugrabozkurtt@gmail.com"
+        },
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/users": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "List Users",
+                "operationId": "6404deedf4ff57b0ed2b004cb5ac1d7b",
+                "responses": {
+                    "200": {
+                        "description": "Users listed successfully."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Create a User",
+                "operationId": "ad2dee2e6c7a94acd72da2b02dd90958",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "example": "John"
+                                        },
+                                        "last_name": {
+                                            "type": "string",
+                                            "example": "Doe"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "johndoe@example.com"
+                                        },
+                                        "password": {
+                                            "type": "string",
+                                            "example": "123456789"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "User created successfully."
+                    }
+                }
+            }
+        },
+        "/api/v1/users/verify": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Verify User Credentials",
+                "operationId": "c5757982302bf57ed334f03bc0d001f1",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "properties": {
+                                        "email": {
+                                            "type": "string",
+                                            "example": "johndoe@example.com"
+                                        },
+                                        "password": {
+                                            "type": "string",
+                                            "example": "123456789"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User successfully verified."
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "UserDTO": {
+                "title": "User Data Transfer Object",
+                "description": "User information",
+                "properties": {
+                    "name": {
+                        "description": "Kullanıcının adı.",
+                        "type": "string",
+                        "example": "Buğra",
+                        "nullable": false
+                    },
+                    "last_name": {
+                        "description": "Kullanıcının soyadı.",
+                        "type": "string",
+                        "example": "Bozkurt",
+                        "nullable": false
+                    },
+                    "email": {
+                        "description": "Kullanıcının e-posta adresi.",
+                        "type": "string",
+                        "example": "bugrabozkurtt@gmail.com",
+                        "nullable": false
+                    },
+                    "password": {
+                        "description": "Kullanıcının şifresi.",
+                        "type": "string",
+                        "example": "123456789",
+                        "nullable": false
+                    }
+                },
+                "type": "object"
+            },
+            "UserInfoDTO": {
+                "title": "User Data Transfer Object",
+                "description": "User information",
+                "properties": {
+                    "id": {
+                        "description": "Kullanıcının kimlik bilgisi.",
+                        "type": "string",
+                        "example": "1",
+                        "nullable": false
+                    },
+                    "name": {
+                        "description": "Kullanıcının adı.",
+                        "type": "string",
+                        "example": "Buğra",
+                        "nullable": false
+                    },
+                    "last_name": {
+                        "description": "Kullanıcının soyadı.",
+                        "type": "string",
+                        "example": "Bozkurt",
+                        "nullable": false
+                    },
+                    "email": {
+                        "description": "Kullanıcının e-posta adresi.",
+                        "type": "string",
+                        "example": "bugrabozkurtt@gmail.com",
+                        "nullable": false
+                    }
+                },
+                "type": "object"
+            },
+            "VerifyUserData": {
+                "title": "Verify User Data Transfer Object",
+                "description": "User information",
+                "properties": {
+                    "email": {
+                        "description": "Kullanıcının e-posta adresi.",
+                        "type": "string",
+                        "example": "bugrabozkurtt@gmail.com",
+                        "nullable": false
+                    },
+                    "password": {
+                        "description": "Kullanıcının şifresi.",
+                        "type": "string",
+                        "example": "123456789",
+                        "nullable": false
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "User",
+            "description": "User"
+        }
+    ]
+}
