@@ -67,13 +67,13 @@
                 }
             }
         },
-        "/api/v1/users/verify": {
+        "/api/v1/users/verify-credentials": {
             "post": {
                 "tags": [
                     "User"
                 ],
                 "summary": "Verify User Credentials",
-                "operationId": "c5757982302bf57ed334f03bc0d001f1",
+                "operationId": "d09251c4ee062ddd4dc26ad0928c35f3",
                 "requestBody": {
                     "required": true,
                     "content": {

@@ -66,7 +66,7 @@ final class UserController extends Controller
      * @throws Throwable
      */
     #[OA\Post(
-        path: "/api/v1/users/verify",
+        path: "/api/v1/users/verify-credentials",
         summary: "Verify User Credentials",
         requestBody: new OA\RequestBody(
             required: true,
