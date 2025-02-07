@@ -4,12 +4,15 @@ namespace App\Actions;
 
 use App\Data\UserInfoDTO;
 use App\Data\VerifyUserData;
-use App\Services\UserService;
+use App\Exceptions\UserCanNotValidatedException;
+use App\Exceptions\UserNotFoundException;
+use App\Repositories\Contracts\UserRepositoryInterface;
+use Illuminate\Support\Facades\Hash;
 use Throwable;
 
-class VerifyUserAction
+final class VerifyUserAction
 {
-    public function __construct(protected UserService $userService)
+    public function __construct(protected UserRepositoryInterface $userRepository)
     {}
 
     /**
@@ -17,6 +20,14 @@ class VerifyUserAction
      */
     public function execute(VerifyUserData $request): UserInfoDTO
     {
-        return $this->userService->verifyUser($request);
+        $user = $this->userRepository->getUserByEmail($request->email);
+
+        throw_if(!$user, UserNotFoundException::class);
+
+        $isPasswordValid = Hash::check($request->password, $user->password);
+
+        throw_if(!$isPasswordValid, UserCanNotValidatedException::class);
+
+        return UserInfoDTO::from($user);
     }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\V1;
 
+use App\Exceptions\InvalidEmailFormatException;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Throwable;
 use App\Http\Requests\{UserCreateRequest,UserVerifyRequest};
 use App\Actions\{CreateUserAction,VerifyUserAction};
 use App\Http\Resources\UserResource;
@@ -27,9 +29,13 @@ final class UserController extends Controller
     )]
     public function index(): AnonymousResourceCollection
     {
-        return UserResource::collection($this->userService->getAll())->additional(['message' => 'Success']);
+        return UserResource::collection($this->userService->getAll())->additional(['success' => true]);
     }
 
+    /**
+     * @throws InvalidEmailFormatException
+     * @throws Throwable
+     */
     #[OA\Post(
         path: "/api/v1/users",
         summary: "Create a User",
@@ -56,6 +62,9 @@ final class UserController extends Controller
         return $this->successResponse(__('messages.user_created'));
     }
 
+    /**
+     * @throws Throwable
+     */
     #[OA\Post(
         path: "/api/v1/users/verify",
         summary: "Verify User Credentials",
