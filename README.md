@@ -53,4 +53,4 @@ composer install
 
 ## 📝 Notlar
 
-- Swagger dökümantasyonu için [http://localhost:8081/api/documentation](http://localhost:8081/api/documentation) adresini ziyaret edebilirsiniz.
+- Swagger dökümantasyonu için [http://localhost:8080/api/documentation](http://localhost:8080/api/documentation) adresini ziyaret edebilirsiniz.
