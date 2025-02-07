@@ -2,24 +2,34 @@
 
 namespace App\Data;
 
-use OpenApi\Annotations as OA;
+use OpenApi\Attributes as OA;
 use Spatie\LaravelData\Data;
 
-
-/**
- * @OA\Schema(
- *     schema="VerifyUserData",
- *     type="object",
- *     title="Verify User Data Transfer Object",
- *     description="User information",
- *     @OA\Property(property="email", type="string", example="bugrabozkurtt@gmail.com", nullable=false, description="Kullanıcının e-posta adresi."),
- *     @OA\Property(property="password", type="string", example="123456789", nullable=false, description="Kullanıcının şifresi."),
- * )
- */
+#[OA\Schema(
+    schema: "VerifyUserData",
+    title: "Verify User Data Transfer Object",
+    description: "User verification data",
+    type: "object"
+)]
 final class VerifyUserData extends Data
 {
     public function __construct(
+        #[OA\Property(
+            property: "email",
+            description: "User's email address.",
+            type: "string",
+            example: "bugrabozkurtt@gmail.com",
+            nullable: false
+        )]
         public string $email,
+
+        #[OA\Property(
+            property: "password",
+            description: "User's password.",
+            type: "string",
+            example: "123456789",
+            nullable: false
+        )]
         public string $password
     ){}
 }

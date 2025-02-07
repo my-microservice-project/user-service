@@ -37,28 +37,25 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "type": "array",
-                                "items": {
-                                    "properties": {
-                                        "name": {
-                                            "type": "string",
-                                            "example": "John"
-                                        },
-                                        "last_name": {
-                                            "type": "string",
-                                            "example": "Doe"
-                                        },
-                                        "email": {
-                                            "type": "string",
-                                            "example": "johndoe@example.com"
-                                        },
-                                        "password": {
-                                            "type": "string",
-                                            "example": "123456789"
-                                        }
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John"
                                     },
-                                    "type": "object"
-                                }
+                                    "last_name": {
+                                        "type": "string",
+                                        "example": "Doe"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "johndoe@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "123456789"
+                                    }
+                                },
+                                "type": "object"
                             }
                         }
                     }
@@ -82,20 +79,17 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "type": "array",
-                                "items": {
-                                    "properties": {
-                                        "email": {
-                                            "type": "string",
-                                            "example": "johndoe@example.com"
-                                        },
-                                        "password": {
-                                            "type": "string",
-                                            "example": "123456789"
-                                        }
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "johndoe@example.com"
                                     },
-                                    "type": "object"
-                                }
+                                    "password": {
+                                        "type": "string",
+                                        "example": "123456789"
+                                    }
+                                },
+                                "type": "object"
                             }
                         }
                     }
@@ -115,28 +109,24 @@
                 "description": "User information",
                 "properties": {
                     "name": {
-                        "description": "Kullanıcının adı.",
+                        "description": "User's first name.",
                         "type": "string",
-                        "example": "Buğra",
-                        "nullable": false
+                        "example": "Buğra"
                     },
                     "last_name": {
-                        "description": "Kullanıcının soyadı.",
+                        "description": "User's last name.",
                         "type": "string",
-                        "example": "Bozkurt",
-                        "nullable": false
+                        "example": "Bozkurt"
                     },
                     "email": {
-                        "description": "Kullanıcının e-posta adresi.",
+                        "description": "User's email address.",
                         "type": "string",
-                        "example": "bugrabozkurtt@gmail.com",
-                        "nullable": false
+                        "example": "bugrabozkurtt@gmail.com"
                     },
                     "password": {
-                        "description": "Kullanıcının şifresi.",
+                        "description": "User's password.",
                         "type": "string",
-                        "example": "123456789",
-                        "nullable": false
+                        "example": "123456789"
                     }
                 },
                 "type": "object"
@@ -146,47 +136,41 @@
                 "description": "User information",
                 "properties": {
                     "id": {
-                        "description": "Kullanıcının kimlik bilgisi.",
-                        "type": "string",
-                        "example": "1",
-                        "nullable": false
+                        "description": "User's unique identifier.",
+                        "type": "integer",
+                        "example": 1
                     },
                     "name": {
-                        "description": "Kullanıcının adı.",
+                        "description": "User's first name.",
                         "type": "string",
-                        "example": "Buğra",
-                        "nullable": false
+                        "example": "Buğra"
                     },
                     "last_name": {
-                        "description": "Kullanıcının soyadı.",
+                        "description": "User's last name.",
                         "type": "string",
-                        "example": "Bozkurt",
-                        "nullable": false
+                        "example": "Bozkurt"
                     },
                     "email": {
-                        "description": "Kullanıcının e-posta adresi.",
+                        "description": "User's email address.",
                         "type": "string",
-                        "example": "bugrabozkurtt@gmail.com",
-                        "nullable": false
+                        "example": "bugrabozkurtt@gmail.com"
                     }
                 },
                 "type": "object"
             },
             "VerifyUserData": {
                 "title": "Verify User Data Transfer Object",
-                "description": "User information",
+                "description": "User verification data",
                 "properties": {
                     "email": {
-                        "description": "Kullanıcının e-posta adresi.",
+                        "description": "User's email address.",
                         "type": "string",
-                        "example": "bugrabozkurtt@gmail.com",
-                        "nullable": false
+                        "example": "bugrabozkurtt@gmail.com"
                     },
                     "password": {
-                        "description": "Kullanıcının şifresi.",
+                        "description": "User's password.",
                         "type": "string",
-                        "example": "123456789",
-                        "nullable": false
+                        "example": "123456789"
                     }
                 },
                 "type": "object"
