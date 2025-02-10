@@ -14,7 +14,7 @@ class UserResource extends JsonResource
             'id' => $this->resource->id,
             'name' => $this->resource->name . ' ' . $this->resource->last_name,
             'since' => Carbon::make($this->resource->created_at)->format('Y-m-d'),
-            'revenue' => 'YAPILACAK',
+            'revenue' => $this->resource->revenue
         ];
     }
 }
